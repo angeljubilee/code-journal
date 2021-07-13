@@ -12,8 +12,9 @@ if (prevData) {
   data = JSON.parse(prevData);
 }
 
+var $ul = document.querySelector('ul');
 for (var i = 0; i < data.entries.length; i++) {
-  getDOM(data.entries[i]);
+  $ul.appendChild(getDOM(data.entries[i]));
 }
 
 window.addEventListener('beforeunload', handleLocalStorage);
