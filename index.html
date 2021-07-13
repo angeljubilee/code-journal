@@ -13,11 +13,67 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato&family=Roboto:ital,wght@0,500;0,700;0,900;1,400&display=swap"
+    rel="stylesheet">
 </head>
 <body>
   <header>
+    <div class="container">
+      <div class="row">
+        <div class="column-full">
+          <p>Code Journal</p>
+        </div>
+      </div>
+    </div>
   </header>
   <main>
+    <div class="container">
+      <div class="view" data-view="entry-form">
+        <form class="newEntry">
+          <div class="row">
+            <div class="column-full">
+              <h1>New Entry</h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-half">
+              <img src="./images/placeholder-image-square.jpg">
+            </div>
+            <div class="column-half">
+              <div class="form-label">
+                <label for="label">Title</label>
+              </div>
+              <div class="form-input">
+                <input type="text" id="title" name="title" required="true">
+              </div>
+              <div class="form-label">
+                <label for="imgURL">Photo URL</label>
+              </div>
+              <div class="form-input">
+                <input type="text" id="imgURL" name="imgURL" required="true">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-full">
+              <div class="form-label">
+                <label for="notes">Notes</label>
+              </div>
+              <div class="form-input">
+                <textarea id="notes" name="notes" required="true"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-full">
+              <button type="submit">Save</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>

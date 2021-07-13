@@ -1,0 +1,61 @@
+body {
+  font-family: 'Lato', sans-serif;
+  line-height: 2.4rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button {
+  font-family: 'Roboto Mono', monospace;
+}
+
+header {
+  background-color: darkslateblue;
+  color: white;
+  font-size: 1.4rem;
+}
+
+img {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid darkgray;
+  border-radius: 0.2rem;
+  margin-bottom: 1rem;
+}
+
+input {
+  line-height: 2rem;
+}
+
+textarea {
+  height: 30vh;
+}
+
+button {
+  background-color: darkslateblue;
+  color: white;
+  border-radius: 0.2rem;
+  border: none;
+  font-size: 1rem;
+  text-transform: uppercase;
+  float: right;
+  padding: 0.5rem 1rem;
+}
+
+form {
+  margin-bottom: 2rem;
+}
+
+.form-label {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
