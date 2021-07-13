@@ -19,6 +19,12 @@ header {
   font-size: 1.4rem;
 }
 
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
 img {
   width: 100%;
 }
@@ -50,21 +56,16 @@ button {
   padding: 0.5rem 1rem;
 }
 
+ul {
+  list-style-type: none;
+}
+
 form {
   margin-bottom: 2rem;
 }
 
 form img {
   margin-bottom: 1rem;
-}
-
-ul {
-  padding: 0;
-  list-style-type: none;
-}
-
-li {
-  margin-bottom: 2.5rem;
 }
 
 .flex {
@@ -82,6 +83,14 @@ li {
 .form-label {
   font-size: 1.2rem;
   font-weight: 600;
+}
+
+.journal ul {
+  padding: 0;
+}
+
+.journal li {
+  margin-bottom: 2.5rem;
 }
 
 .journal-entry h2,

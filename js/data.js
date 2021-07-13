@@ -12,7 +12,7 @@ if (prevData) {
   data = JSON.parse(prevData);
 }
 
-var $ul = document.querySelector('ul');
+var $ul = document.querySelector('.journal-entries');
 for (var i = 0; i < data.entries.length; i++) {
   $ul.appendChild(getDOM(data.entries[i]));
 }
