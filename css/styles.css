@@ -63,6 +63,10 @@ ul {
   list-style-type: none;
 }
 
+li {
+  margin-bottom: 2.5rem;
+}
+
 .flex {
   display: flex;
 }
