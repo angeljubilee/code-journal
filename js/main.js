@@ -2,15 +2,15 @@
 /* exported data */
 
 var $photoUrl = document.querySelector('#imgURL');
-$photoUrl.addEventListener('input', handleImgUrl);
 var $img = document.querySelector('img');
+var $form = document.querySelector('.newEntry');
+
+$photoUrl.addEventListener('input', handleImgUrl);
+$form.addEventListener('submit', handleSubmit);
 
 function handleImgUrl(event) {
   $img.setAttribute('src', event.target.value);
 }
-
-var $form = document.querySelector('.newEntry');
-$form.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
   event.preventDefault();
@@ -21,7 +21,7 @@ function handleSubmit(event) {
   };
   newEntry.nextEntryId = data.nextEntryId;
   data.nextEntryId++;
-  $img.setAttribute('src', '');
   data.entries.unshift(newEntry);
+  $img.setAttribute('src', '');
   $form.reset();
 }
