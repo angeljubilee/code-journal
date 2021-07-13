@@ -55,7 +55,22 @@ form {
   margin-bottom: 2rem;
 }
 
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.align-center {
+  align-items: center;
+}
+
 .form-label {
   font-size: 1.2rem;
   font-weight: 600;
+}
+
+.journal-entry h2,
+p {
+  padding-left: 1rem;
+  line-height: 1.5rem;
 }
