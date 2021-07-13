@@ -71,6 +71,10 @@ ul {
   align-items: center;
 }
 
+.space-between {
+  justify-content: space-between;
+}
+
 .form-label {
   font-size: 1.2rem;
   font-weight: 600;
