@@ -1,6 +1,5 @@
 body {
   font-family: 'Lato', sans-serif;
-  line-height: 2.4rem;
 }
 
 h1,
@@ -97,4 +96,8 @@ form img {
 p {
   padding-left: 1rem;
   line-height: 1.5rem;
+}
+
+.hidden {
+  display: none;
 }

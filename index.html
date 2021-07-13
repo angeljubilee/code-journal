@@ -25,7 +25,7 @@
         <p>Code Journal</p>
         <nav>
           <ul>
-            <li><a href="#journal">Entries</a></li>
+            <li class="nav-entries"><a href="#">Entries</a></li>
           </ul>
         </nav>
       </div>
@@ -34,7 +34,7 @@
 
   <main>
     <div class="container">
-      <div class="view" data-view="entry-form">
+      <div class="view hidden" data-view="entry-form">
         <form class="newEntry">
           <div class="row">
             <div class="column-full">
@@ -77,12 +77,12 @@
           </div>
         </form>
       </div>
-      <div id="journal" class="view journal" data-view="entries">
+      <div class="view journal" data-view="entries">
         <div class="row">
           <div class="column-full">
             <div class="row align-center space-between">
               <h1>Entries</h1>
-              <button>New</button>
+              <button class="new-button">New</button>
             </div>
           </div>
         </div>

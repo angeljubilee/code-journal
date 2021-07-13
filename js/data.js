@@ -13,6 +13,21 @@ if (prevData) {
 }
 
 var $ul = document.querySelector('.journal-entries');
+if (!data.entries.length) {
+  $ul.textContent = 'No entries have been recorded.';
+} else {
+  $ul.textContent = '';
+}
+
+var $views = document.querySelectorAll('.view');
+$views.forEach(node => {
+  if (node.getAttribute('data-view') === data.view) {
+    node.className = 'view';
+  } else {
+    node.className = 'view hidden';
+  }
+});
+
 for (var i = 0; i < data.entries.length; i++) {
   $ul.appendChild(getDOM(data.entries[i]));
 }
