@@ -30,50 +30,48 @@
   </header>
   <main>
     <div class="container">
-      <div class="view-container">
-        <div class="view" data-view="entry-form">
-          <form class="newEntry">
-            <div class="row">
-              <div class="column-full">
-                <h1>New Entry</h1>
+      <div class="view" data-view="entry-form">
+        <form class="newEntry">
+          <div class="row">
+            <div class="column-full">
+              <h1>New Entry</h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-half">
+              <img src="./images/placeholder-image-square.jpg">
+            </div>
+            <div class="column-half">
+              <div class="form-label">
+                <label for="label">Title</label>
+              </div>
+              <div class="form-input">
+                <input type="text" id="title" name="title" required="true">
+              </div>
+              <div class="form-label">
+                <label for="imgURL">Photo URL</label>
+              </div>
+              <div class="form-input">
+                <input type="text" id="imgURL" name="imgURL" required="true">
               </div>
             </div>
-            <div class="row">
-              <div class="column-half">
-                <img src="./images/placeholder-image-square.jpg">
+          </div>
+          <div class="row">
+            <div class="column-full">
+              <div class="form-label">
+                <label for="notes">Notes</label>
               </div>
-              <div class="column-half">
-                <div class="form-label">
-                  <label for="label">Title</label>
-                </div>
-                <div class="form-input">
-                  <input type="text" id="title" name="title" required="true">
-                </div>
-                <div class="form-label">
-                  <label for="imgURL">Photo URL</label>
-                </div>
-                <div class="form-input">
-                  <input type="text" id="imgURL" name="imgURL" required="true">
-                </div>
+              <div class="form-input">
+                <textarea id="notes" name="notes" required="true"></textarea>
               </div>
             </div>
-            <div class="row">
-              <div class="column-full">
-                <div class="form-label">
-                  <label for="notes">Notes</label>
-                </div>
-                <div class="form-input">
-                  <textarea id="notes" name="notes" required="true"></textarea>
-                </div>
-              </div>
+          </div>
+          <div class="row">
+            <div class="column-full">
+              <button type="submit">Save</button>
             </div>
-            <div class="row">
-              <div class="column-full">
-                <button type="submit">Save</button>
-              </div>
-            </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
     </div>
   </main>
