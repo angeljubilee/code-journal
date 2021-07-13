@@ -9,7 +9,7 @@ function handleImgUrl(event) {
   $img.setAttribute('src', event.target.value);
 }
 
-var $form = document.querySelector('form');
+var $form = document.querySelector('.newEntry');
 $form.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
