@@ -2,6 +2,10 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
+p {
+  padding-left: 0;
+}
+
 h1,
 h2,
 h3,
@@ -90,12 +94,11 @@ form img {
 
 .journal li {
   margin-bottom: 2.5rem;
+  line-height: 1.5rem;
 }
 
-.journal-entry h2,
-p {
+.padding-left-1 {
   padding-left: 1rem;
-  line-height: 1.5rem;
 }
 
 .text-center {
