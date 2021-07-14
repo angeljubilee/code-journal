@@ -91,9 +91,18 @@ function getDOM(entry) {
   $column2.className = 'column-half';
   $row.appendChild($column2);
 
+  $row = document.createElement('div');
+  $row.className = 'row align-center space-between';
+  $column2.appendChild($row);
+
   var $title = document.createElement('h2');
   $title.textContent = entry.title;
-  $column2.appendChild($title);
+  $row.appendChild($title);
+
+  var $edit = document.createElement('img');
+  $edit.setAttribute('src', 'images/edit-icon.png');
+  $edit.className = 'edit-icon';
+  $row.appendChild($edit);
 
   var $notes = document.createElement('p');
   $notes.textContent = entry.notes;
