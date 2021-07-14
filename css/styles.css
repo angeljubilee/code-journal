@@ -71,10 +71,6 @@ form img {
   margin-bottom: 1rem;
 }
 
-.flex {
-  display: flex;
-}
-
 .align-center {
   align-items: center;
 }
@@ -88,17 +84,13 @@ form img {
   font-weight: 600;
 }
 
-.journal ul {
+.journal-entries {
   padding: 0;
 }
 
 .journal li {
   margin-bottom: 2.5rem;
   line-height: 1.5rem;
-}
-
-.padding-left-1 {
-  padding-left: 1rem;
 }
 
 .text-center {

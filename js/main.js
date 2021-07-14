@@ -8,6 +8,7 @@ var $newEntryView = document.querySelector('.new-button');
 var $navEntries = document.querySelector('.nav-entries');
 var $views = document.querySelectorAll('.view');
 var $ul = document.querySelector('.journal-entries');
+var $noEntries = document.querySelector('.no-entries');
 
 $photoUrl.addEventListener('input', handleImgUrl);
 $form.addEventListener('submit', handleSubmit);
@@ -15,9 +16,9 @@ $newEntryView.addEventListener('click', showNewForm);
 $navEntries.addEventListener('click', showEntries);
 
 if (!data.entries.length) {
-  $ul.textContent = 'No entries have been recorded.';
+  $noEntries.className = 'no-entries';
 } else {
-  $ul.textContent = '';
+  $noEntries.className = 'no-entries hidden';
 }
 for (var i = 0; i < data.entries.length; i++) {
   $ul.appendChild(getDOM(data.entries[i]));
@@ -75,7 +76,7 @@ function getDOM(entry) {
   $node.className = 'journal-entry';
 
   var $row = document.createElement('div');
-  $row.className = 'row';
+  $row.className = 'row space-between';
   $node.appendChild($row);
 
   var $column1 = document.createElement('div');
