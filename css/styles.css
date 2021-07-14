@@ -1,6 +1,9 @@
 body {
   font-family: 'Lato', sans-serif;
-  line-height: 2.4rem;
+}
+
+p {
+  padding-left: 0;
 }
 
 h1,
@@ -19,9 +22,14 @@ header {
   font-size: 1.4rem;
 }
 
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
 img {
   width: 100%;
-  margin-bottom: 1rem;
 }
 
 input,
@@ -51,11 +59,44 @@ button {
   padding: 0.5rem 1rem;
 }
 
+ul {
+  list-style-type: none;
+}
+
 form {
   margin-bottom: 2rem;
+}
+
+form img {
+  margin-bottom: 1rem;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.space-between {
+  justify-content: space-between;
 }
 
 .form-label {
   font-size: 1.2rem;
   font-weight: 600;
+}
+
+.journal-entries {
+  padding: 0;
+}
+
+.journal li {
+  margin-bottom: 2.5rem;
+  line-height: 1.5rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
 }
