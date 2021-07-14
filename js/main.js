@@ -47,30 +47,27 @@ function handleSubmit(event) {
   data.entries.unshift(newEntry);
   $img.setAttribute('src', './images/placeholder-image-square.jpg');
 
-  showEntries(event);
+  displayView('entries');
   $form.reset();
 }
 
 function showNewForm(event) {
-  $views.forEach(node => {
-    if (node.getAttribute('data-view') === 'entry-form') {
-      node.className = 'view';
-    } else {
-      node.className = 'view hidden';
-    }
-  });
-  data.view = 'entry-form';
+  displayView('entry-form');
 }
 
 function showEntries(event) {
+  displayView('entries');
+}
+
+function displayView(viewType) {
   $views.forEach(node => {
-    if (node.getAttribute('data-view') === 'entries') {
+    if (node.getAttribute('data-view') === viewType) {
       node.className = 'view';
     } else {
       node.className = 'view hidden';
     }
   });
-  data.view = 'entries';
+  data.view = viewType;
 }
 
 function getDOM(entry) {
