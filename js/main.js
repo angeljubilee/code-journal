@@ -1,6 +1,7 @@
 /* global data */
 /* exported data */
 
+var $formTitle = document.querySelector('.form-title');
 var $photoUrl = document.querySelector('#imgURL');
 var $img = document.querySelector('img');
 var $form = document.querySelector('.newEntry');
@@ -39,28 +40,47 @@ function handleImgURL(event) {
 
 function handleSubmit(event) {
   event.preventDefault();
-  var newEntry = {
-    title: $form.elements.title.value,
-    imgURL: $form.elements.imgURL.value,
-    notes: $form.elements.notes.value
-  };
-  newEntry.nextEntryId = data.nextEntryId;
-  data.nextEntryId++;
-  data.entries.unshift(newEntry);
-  $img.setAttribute('src', './images/placeholder-image-square.jpg');
+  var $newNode = {};
+  if (data.editing) {
+    var entry = findDataEntry(data.editing);
+    entry.title = $form.elements.title.value;
+    entry.imgURL = $form.elements.imgURL.value;
+    entry.notes = $form.elements.notes.value;
+
+    var $prevNode = findNodeEntry(data.editing);
+    $newNode = getDOM(entry);
+    $journal.replaceChild($newNode, $prevNode);
+    data.editing = null;
+  } else {
+    var newEntry = {
+      title: $form.elements.title.value,
+      imgURL: $form.elements.imgURL.value,
+      notes: $form.elements.notes.value
+    };
+    newEntry.nextEntryId = data.nextEntryId;
+    data.nextEntryId++;
+    data.entries.unshift(newEntry);
+
+    $newNode = getDOM(newEntry);
+    $journal.insertBefore($newNode, $journal.firstChild);
+  }
 
   displayView('entries');
+  $img.setAttribute('src', './images/placeholder-image-square.jpg');
   $form.reset();
 }
 
 function handleJournalClick(event) {
   displayView('entry-form');
   var $parentEntry = event.target.closest('li');
-  data.editing = $parentEntry.getAttribute('data-entry-id');
-  $form.elements.title.value = data.entries[data.editing - 1].title;
-  $form.elements.imgURL.value = data.entries[data.editing - 1].imgURL;
-  $form.elements.notes.value = data.entries[data.editing - 1].notes;
+  data.editing = parseInt($parentEntry.getAttribute('data-entry-id'), 10);
+
+  var entry = findDataEntry(data.editing);
+  $form.elements.title.value = entry.title;
+  $form.elements.imgURL.value = entry.imgURL;
+  $form.elements.notes.value = entry.notes;
   $img.setAttribute('src', $form.elements.imgURL.value);
+  $formTitle.textContent = 'Edit Entry';
 }
 
 function showNewForm(event) {
@@ -121,4 +141,26 @@ function getDOM(entry) {
   $column2.appendChild($notes);
 
   return $node;
+}
+
+function findDataEntry(id) {
+  var entry = 0;
+  for (var i = 0; i < data.entries.length; i++) {
+    if (data.entries[i].nextEntryId === id) {
+      entry = data.entries[i];
+      return entry;
+    }
+  }
+  return null;
+}
+
+function findNodeEntry(id) {
+  var children = $journal.children;
+
+  for (var i = 0; i < children.length; i++) {
+    if (parseInt(children[i].getAttribute('data-entry-id')) === id) {
+      return children[i];
+    }
+  }
+  return null;
 }
