@@ -7,13 +7,14 @@ var $form = document.querySelector('.newEntry');
 var $newEntryView = document.querySelector('.new-button');
 var $navEntries = document.querySelector('.nav-entries');
 var $views = document.querySelectorAll('.view');
-var $ul = document.querySelector('.journal-entries');
+var $journal = document.querySelector('.journal-entries');
 var $noEntries = document.querySelector('.no-entries');
 
-$photoUrl.addEventListener('input', handleImgUrl);
+$photoUrl.addEventListener('input', handleImgURL);
 $form.addEventListener('submit', handleSubmit);
 $newEntryView.addEventListener('click', showNewForm);
 $navEntries.addEventListener('click', showEntries);
+$journal.addEventListener('click', handleJournalClick);
 
 if (!data.entries.length) {
   $noEntries.className = 'no-entries';
@@ -21,7 +22,7 @@ if (!data.entries.length) {
   $noEntries.className = 'no-entries hidden';
 }
 for (var i = 0; i < data.entries.length; i++) {
-  $ul.appendChild(getDOM(data.entries[i]));
+  $journal.appendChild(getDOM(data.entries[i]));
 }
 
 $views.forEach(node => {
@@ -32,7 +33,7 @@ $views.forEach(node => {
   }
 });
 
-function handleImgUrl(event) {
+function handleImgURL(event) {
   $img.setAttribute('src', event.target.value);
 }
 
@@ -40,7 +41,7 @@ function handleSubmit(event) {
   event.preventDefault();
   var newEntry = {
     title: $form.elements.title.value,
-    imgUrl: $form.elements.imgURL.value,
+    imgURL: $form.elements.imgURL.value,
     notes: $form.elements.notes.value
   };
   newEntry.nextEntryId = data.nextEntryId;
@@ -50,6 +51,16 @@ function handleSubmit(event) {
 
   displayView('entries');
   $form.reset();
+}
+
+function handleJournalClick(event) {
+  displayView('entry-form');
+  var $parentEntry = event.target.closest('li');
+  data.editing = $parentEntry.getAttribute('data-entry-id');
+  $form.elements.title.value = data.entries[data.editing - 1].title;
+  $form.elements.imgURL.value = data.entries[data.editing - 1].imgURL;
+  $form.elements.notes.value = data.entries[data.editing - 1].notes;
+  $img.setAttribute('src', $form.elements.imgURL.value);
 }
 
 function showNewForm(event) {
@@ -74,6 +85,7 @@ function displayView(viewType) {
 function getDOM(entry) {
   var $node = document.createElement('li');
   $node.className = 'journal-entry';
+  $node.setAttribute('data-entry-id', entry.nextEntryId);
 
   var $row = document.createElement('div');
   $row.className = 'row space-between';
@@ -84,7 +96,7 @@ function getDOM(entry) {
   $row.appendChild($column1);
 
   var $img = document.createElement('img');
-  $img.setAttribute('src', entry.imgUrl);
+  $img.setAttribute('src', entry.imgURL);
   $column1.appendChild($img);
 
   var $column2 = document.createElement('div');
