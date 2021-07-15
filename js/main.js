@@ -15,7 +15,7 @@ $photoUrl.addEventListener('input', handleImgURL);
 $form.addEventListener('submit', handleSubmit);
 $newEntryView.addEventListener('click', showNewForm);
 $navEntries.addEventListener('click', showEntries);
-$journal.addEventListener('click', handleJournalClick);
+$journal.addEventListener('click', handleJournalEdit);
 
 if (!data.entries.length) {
   $noEntries.className = 'no-entries';
@@ -41,6 +41,7 @@ function handleImgURL(event) {
 function handleSubmit(event) {
   event.preventDefault();
   var $newNode = {};
+
   if (data.editing) {
     var entry = findDataEntry(data.editing);
     entry.title = $form.elements.title.value;
@@ -66,14 +67,12 @@ function handleSubmit(event) {
   }
 
   displayView('entries');
-  $img.setAttribute('src', './images/placeholder-image-square.jpg');
-  $form.reset();
 }
 
-function handleJournalClick(event) {
+function handleJournalEdit(event) {
   displayView('entry-form');
   var $parentEntry = event.target.closest('li');
-  data.editing = parseInt($parentEntry.getAttribute('data-entry-id'), 10);
+  data.editing = parseInt($parentEntry.getAttribute('data-entry-id'));
 
   var entry = findDataEntry(data.editing);
   $form.elements.title.value = entry.title;
@@ -84,6 +83,10 @@ function handleJournalClick(event) {
 }
 
 function showNewForm(event) {
+  data.editing = null;
+  $formTitle.textContent = 'New Entry';
+  $img.setAttribute('src', './images/placeholder-image-square.jpg');
+  $form.reset();
   displayView('entry-form');
 }
 
@@ -151,7 +154,6 @@ function findDataEntry(id) {
       return entry;
     }
   }
-  return null;
 }
 
 function findNodeEntry(id) {
@@ -162,5 +164,4 @@ function findNodeEntry(id) {
       return children[i];
     }
   }
-  return null;
 }
