@@ -41,6 +41,19 @@ $views.forEach(node => {
   }
 });
 
+if (data.view === 'entry-form' && data.editing > 0) {
+  $deleteEntry.className = 'delete-entry';
+  $deleteEntry.parentElement.className = 'row align-center space-between';
+
+  var entry = findDataEntry(data.editing);
+  $form.elements.title.value = entry.title;
+  $form.elements.imgURL.value = entry.imgURL;
+  $form.elements.notes.value = entry.notes;
+  $img.setAttribute('src', $form.elements.imgURL.value);
+  $formTitle.textContent = 'Edit Entry';
+
+}
+
 function handleImgURL(event) {
   $img.setAttribute('src', event.target.value);
 }
