@@ -6,6 +6,10 @@ p {
   padding-left: 0;
 }
 
+a {
+  color: red;
+}
+
 h1,
 h2,
 h3,
@@ -57,6 +61,7 @@ button {
   text-transform: uppercase;
   float: right;
   padding: 0.5rem 1rem;
+  position: relative;
 }
 
 ul {
@@ -71,12 +76,20 @@ form img {
   margin-bottom: 1rem;
 }
 
+.dark-background {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 .align-center {
   align-items: center;
 }
 
 .space-between {
   justify-content: space-between;
+}
+
+.flex-end {
+  justify-content: flex-end;
 }
 
 .text-center {

@@ -10,6 +10,7 @@ var $navEntries = document.querySelector('.nav-entries');
 var $views = document.querySelectorAll('.view');
 var $journal = document.querySelector('.journal-entries');
 var $noEntries = document.querySelector('.no-entries');
+var $deleteEntry = document.querySelector('.delete-entry');
 
 $photoUrl.addEventListener('input', handleImgURL);
 $form.addEventListener('submit', handleSubmit);
@@ -71,6 +72,9 @@ function handleSubmit(event) {
 
 function handleJournalEdit(event) {
   displayView('entry-form');
+  $deleteEntry.className = 'delete-entry';
+  $deleteEntry.parentElement.className = 'row align-center space-between';
+
   var $parentEntry = event.target.closest('li');
   data.editing = parseInt($parentEntry.getAttribute('data-entry-id'));
 
@@ -84,8 +88,10 @@ function handleJournalEdit(event) {
 
 function showNewForm(event) {
   data.editing = null;
+  $deleteEntry.parentElement.className = 'row align-center flex-end';
   $formTitle.textContent = 'New Entry';
   $img.setAttribute('src', './images/placeholder-image-square.jpg');
+  $deleteEntry.className += ' hidden';
   $form.reset();
   displayView('entry-form');
 }

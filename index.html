@@ -75,7 +75,10 @@
           </div>
           <div class="row">
             <div class="column-full">
-              <button type="submit">Save</button>
+              <div class="row align-center space-between">
+                <a href="#" class="delete-entry hidden">Delete Entry</a>
+                <button type="submit">Save</button>
+              </div>
             </div>
           </div>
         </form>
@@ -96,6 +99,13 @@
             </div>
           </div>
         </ul>
+      </div>
+    </div>
+    <div class="container dark-background hidden">
+      <div class="modal">
+        <h6>Are you sure you want to delete this entry?</h6>
+        <button>cancel</button>
+        <button>confirm</button>
       </div>
     </div>
   </main>
