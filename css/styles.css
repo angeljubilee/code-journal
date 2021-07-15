@@ -79,9 +79,14 @@ form img {
   justify-content: space-between;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .form-label {
   font-size: 1.2rem;
   font-weight: 600;
+  margin-bottom: 1rem;
 }
 
 .journal-entries {
@@ -93,10 +98,7 @@ form img {
   line-height: 1.5rem;
 }
 
-.text-center {
-  text-align: center;
-}
-
-.hidden {
-  display: none;
+.edit-icon {
+  height: 2.5rem;
+  width: auto;
 }
