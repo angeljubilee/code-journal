@@ -51,7 +51,6 @@ if (data.view === 'entry-form' && data.editing > 0) {
   $form.elements.notes.value = entry.notes;
   $img.setAttribute('src', $form.elements.imgURL.value);
   $formTitle.textContent = 'Edit Entry';
-
 }
 
 function handleImgURL(event) {
